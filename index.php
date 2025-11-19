@@ -26,11 +26,11 @@ session_start();
 
                 <span class="login-display"><?= htmlspecialchars($_SESSION["login"]) ?></span>
                 <a href="index.php?page=profil">Profil</a>
-                <a href="index.php?page=logout">Se déconnecter</a>
+                <a href="index.php?page=deconnexion">Se déconnecter</a>
 
             <?php } else { ?>
 
-                <form method="post" action="index.php?page=login" class="login-form">
+                <form method="post" action="index.php?page=connexion" class="login-form">
                     <input type="text" name="login" placeholder="Login">
                     <input type="password" name="password" placeholder="Mot de passe">
                     <button type="submit">Connexion</button>
@@ -46,14 +46,11 @@ session_start();
 
 <main>
     <?php
-    // la page principale change selon l’action choisie
+    // page principale change selon l’action choisie
     if (isset($_GET["page"])) {
         $page = $_GET["page"];
 
         switch ($page) {
-            case "navigation":
-                include "pages/navigation.php";
-                break;
 
             case "favoris":
                 include "pages/favoris.php";
@@ -71,12 +68,12 @@ session_start();
                 include "pages/inscription.php";
                 break;
 
-            case "login":
-                include "pages/login.php";
+            case "connexion":
+                include "pages/connexion.php";
                 break;
 
-            case "logout":
-                include "pages/logout.php";
+            case "deconnexion":
+                include "pages/deconnexion.php";
                 break;
 
             default:
