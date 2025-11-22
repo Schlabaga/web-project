@@ -1,0 +1,208 @@
+/* ========================= */
+/*   STYLE GLOBAL / RESET    */
+/* ========================= */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: white;
+}
+
+a {
+    text-decoration: none;
+    color: #0000EE;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+main {
+    margin: 15px;
+}
+
+/* ========================= */
+/*       BARRE DU HAUT       */
+/* ========================= */
+
+.top-menu {
+    border: 1px solid black;
+    padding: 6px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+}
+
+.menu-left a {
+    border: 1px solid black;
+    padding: 4px 10px;
+    margin-right: 5px;
+    display: inline-block;
+    background: #EFEFEF;
+}
+
+.menu-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-form input {
+    border: 1px solid #000;
+    padding: 3px;
+}
+
+.login-form button {
+    border: 1px solid black;
+    padding: 3px 8px;
+    background: #EDEDED;
+    cursor: pointer;
+}
+
+/* ========================= */
+/*  LAYOUT DE navigation.php */
+/* ========================= */
+
+.nav-wrapper {
+    border: 1px solid #000;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    background: #fff;
+}
+
+.nav-left {
+    width: 230px;
+    border: 1px solid #000;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.nav-left h2 {
+    margin-top: 0;
+    font-size: 16px;
+}
+
+.fil-ariane {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.liste-sous-categories {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 5px;
+}
+
+.liste-sous-categories li::before {
+    content: "- ";
+}
+
+/* ========================= */
+/*      COLONNE DROITE       */
+/* ========================= */
+
+.nav-right {
+    flex: 1;
+    border: 1px solid #000;
+    padding: 10px;
+    min-height: 300px;
+}
+
+.nav-right h2 {
+    margin-top: 0;
+    font-size: 16px;
+}
+
+/* ========================= */
+/*       LISTE DE CARTES     */
+/* ========================= */
+
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card-recette {
+    width: 220px;
+    border: 1px solid #000;
+    padding: 8px;
+    background: #fff;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 15px;
+}
+
+.card-header h3 a {
+    color: black;
+}
+
+.card-img {
+    text-align: center;
+    margin: 5px 0;
+}
+
+.card-img img {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-index {
+    margin: 0;
+    padding-left: 15px;
+    font-size: 13px;
+}
+
+/* ========================= */
+/*       COEURS FAVORIS      */
+/* ========================= */
+
+.heart {
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.heart-full {
+    color: red;
+}
+
+.heart-empty {
+    color: black;
+}
+
+/* ========================= */
+/*      RECETTE DETAILLEE    */
+/* ========================= */
+
+.card-detail {
+    border: 1px solid #000;
+    padding: 10px;
+    background: white;
+}
+
+.card-detail-body {
+    display: flex;
+    gap: 15px;
+}
+
+.card-detail .card-text {
+    font-size: 14px;
+}
+
+.card-detail h4 {
+    margin-bottom: 4px;
+    margin-top: 8px;
+    font-size: 14px;
+}
