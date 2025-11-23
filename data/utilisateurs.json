@@ -1,0 +1,10 @@
+{
+    "marco": {
+        "password": "$2y$10$NuCH.5NAkC9Pi72LMobuE.hwQCcjMsWWb6c9jd0Bz.p3aKkZZdzQu",
+        "nom": "",
+        "prenom": "",
+        "sexe": "",
+        "date_naissance": "",
+        "favoris": []
+    }
+}

@@ -1,6 +1,5 @@
 <?php
 
-
 function getSousCategories($hierarchie, $aliment) {
     if (isset($hierarchie[$aliment]['sous-categorie'])) {
         return $hierarchie[$aliment]['sous-categorie'];

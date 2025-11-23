@@ -1,5 +1,4 @@
 <?php
-// pages/navigation.php
 
 // On a déjà session_start() dans index.php
 require_once "Donnees.inc.php";
