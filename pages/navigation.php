@@ -3,27 +3,14 @@
 
 // On a déjà session_start() dans index.php
 require_once "Donnees.inc.php";
+global $Hierarchie;
+global $Recettes;
+
+print_r($_SESSION['favoris']);
 
 /* ---------- Gestion des favoris (session) ---------- */
 
-if (!isset($_SESSION['favoris']) || !is_array($_SESSION['favoris'])) {
-    $_SESSION['favoris'] = array();
-}
-
-// Ajout / suppression d'une recette des favoris
-if (isset($_GET['toggle']) && ctype_digit($_GET['toggle'])) {
-    $idRecette = (int) $_GET['toggle'];
-
-    if (in_array($idRecette, $_SESSION['favoris'])) {
-        // retirer
-        $_SESSION['favoris'] = array_values(
-            array_diff($_SESSION['favoris'], array($idRecette))
-        );
-    } else {
-        // ajouter
-        $_SESSION['favoris'][] = $idRecette;
-    }
-}
+include("favoris.php");
 
 /* ---------- Paramètres de navigation ---------- */
 
@@ -43,80 +30,7 @@ if (isset($_GET['recette']) && ctype_digit($_GET['recette'])) {
 
 /* ---------- Fonctions utilitaires ---------- */
 
-function getSousCategories($hierarchie, $aliment) {
-    if (isset($hierarchie[$aliment]['sous-categorie'])) {
-        return $hierarchie[$aliment]['sous-categorie'];
-    }
-    return array();
-}
-
-function buildChemin($hierarchie, $aliment) {
-    $chemin = array($aliment);
-
-    while ($aliment !== 'Aliment') {
-        if (!isset($hierarchie[$aliment]['super-categorie']) ||
-            empty($hierarchie[$aliment]['super-categorie'])) {
-            break;
-        }
-        $parents = $hierarchie[$aliment]['super-categorie'];
-        $aliment = $parents[0]; // on prend le premier parent
-        array_unshift($chemin, $aliment);
-    }
-
-    return $chemin;
-}
-
-function collectAlimentsDescendants($hierarchie, $aliment, &$result) {
-    if (!in_array($aliment, $result)) {
-        $result[] = $aliment;
-    }
-
-    if (isset($hierarchie[$aliment]['sous-categorie'])) {
-        foreach ($hierarchie[$aliment]['sous-categorie'] as $sous) {
-            collectAlimentsDescendants($hierarchie, $sous, $result);
-        }
-    }
-}
-
-// nom de fichier image à partir du titre
-function getImageFileNameFromTitle($titre) {
-    // minuscules
-    $file = strtolower($titre);
-
-    // enlever accents
-    $converted = @iconv('UTF-8', 'ASCII//TRANSLIT', $file);
-    if ($converted !== false) {
-        $file = $converted;
-    }
-
-    // ne garder que lettres + espaces
-    $file = preg_replace('/[^a-z ]+/', '', $file);
-
-    $file = trim($file);
-    $file = preg_replace('/\s+/', '_', $file);
-
-    if ($file === '') {
-        return "default.jpg";
-    }
-
-    $file = ucfirst($file) . '.jpg';
-    return $file;
-}
-
-function getImagePathForRecette($recette) {
-    $baseDir = "Photos/";
-    $fileName = getImageFileNameFromTitle($recette['titre']);
-    $path = $baseDir . $fileName;
-
-    if (!file_exists($path)) {
-        $path = $baseDir . "default.jpg";
-    }
-    return $path;
-}
-
-function isFavorite($idRecette) {
-    return isset($_SESSION['favoris']) && in_array($idRecette, $_SESSION['favoris']);
-}
+include_once "fonctions.php";
 
 /* ---------- Préparation des données ---------- */
 
