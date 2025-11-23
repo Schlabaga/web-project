@@ -53,7 +53,7 @@ session_start();
         switch ($page) {
 
             case "favoris":
-                include "pages/favoris.php";
+                include "pages/recettes.php";
                 break;
 
             case "recherche":
