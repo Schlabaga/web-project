@@ -75,7 +75,3 @@ function getImagePathForRecette($recette) {
 function isFavorite($idRecette) {
     return isset($_SESSION['favoris']) && in_array($idRecette, $_SESSION['favoris']);
 }
-
-function displayFavorites(){
-
-}
