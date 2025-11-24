@@ -29,15 +29,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Vérifier le mot de passe
                 if (password_verify($password, $utilisateur['password'])) {
 
-                    // Connexion réussie
+                    // on fusionne les favoris
+                    $favorisSession = isset($_SESSION['favoris']) ? $_SESSION['favoris'] : array();
+                    $favorisUtilisateur = isset($utilisateur['favoris']) && is_array($utilisateur['favoris'])
+                                          ? $utilisateur['favoris']
+                                          : array();
+
+                    // fusionner et éliminer les doublons
+                    $favorisFusionnes = array_unique(array_merge($favorisSession, $favorisUtilisateur));
+                    $_SESSION['favoris'] = array_values($favorisFusionnes);
+
+                    // connexion réussie
                     $_SESSION['login'] = $login;
 
-                    // Charger les favoris de l'utilisateur
-                    if (isset($utilisateur['favoris']) && is_array($utilisateur['favoris'])) {
-                        $_SESSION['favoris'] = $utilisateur['favoris'];
-                    } else {
-                        $_SESSION['favoris'] = array();
-                    }
+                    // SAUVEGARDER les favoris fusionnés dans le JSON
+                    $utilisateurs[$login]['favoris'] = $_SESSION['favoris'];
+                    $json = json_encode($utilisateurs, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                    file_put_contents($fichierUtilisateurs, $json);
 
                     // Rediriger vers l'accueil
                     header("Location: index.php?page=navigation");

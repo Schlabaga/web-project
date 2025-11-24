@@ -5,6 +5,22 @@
         "prenom": "",
         "sexe": "",
         "date_naissance": "",
-        "favoris": []
+        "favoris": [
+            1,
+            3
+        ]
+    },
+    "nathan": {
+        "password": "$2y$10$tTvAYXx3UuEw0RGfGdanGOUyNh1GLIBnwgeYq2aQXCwhiXc.7siuq",
+        "nom": "",
+        "prenom": "",
+        "sexe": "",
+        "date_naissance": "",
+        "favoris": [
+            1,
+            2,
+            3,
+            7
+        ]
     }
 }

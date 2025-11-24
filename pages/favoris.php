@@ -23,6 +23,25 @@ if (isset($_GET['toggle']) && ctype_digit($_GET['toggle'])) {
         else {
             $_SESSION['favoris'][] = $idRecette;
         }
+
+        // SAUVEGARDER dans le fichier JSON si l'utilisateur est connecté
+        if (isset($_SESSION['login'])) {
+            $fichierUtilisateurs = "data/utilisateurs.json";
+
+            if (file_exists($fichierUtilisateurs)) {
+                $contenu = file_get_contents($fichierUtilisateurs);
+                $utilisateurs = json_decode($contenu, true);
+
+                if (isset($utilisateurs[$_SESSION['login']])) {
+                    // Mettre à jour les favoris de l'utilisateur
+                    $utilisateurs[$_SESSION['login']]['favoris'] = $_SESSION['favoris'];
+
+                    // Sauvegarder dans le fichier
+                    $json = json_encode($utilisateurs, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                    file_put_contents($fichierUtilisateurs, $json);
+                }
+            }
+        }
     }
 
     // Redirection pour éviter le double toggle au refresh
