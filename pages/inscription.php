@@ -1,5 +1,6 @@
 <?php
 require_once "Donnees.inc.php";
+require_once "fonctions.php"; // Pour les fonctions partagées de validation
 
 // Fichier où sont stockés les utilisateurs
 $fichierUtilisateurs = "data/utilisateurs.json";
@@ -12,31 +13,6 @@ $sexe = isset($_POST['sexe']) ? $_POST['sexe'] : '';
 $date_naissance = isset($_POST['date_naissance']) ? $_POST['date_naissance'] : '';
 
 $erreurs = array();
-
-function validerLogin($login) {
-    return preg_match('/^[a-zA-Z0-9]+$/', $login);
-}
-
-function validerNomPrenom($texte) {
-    // lettres (accentuées ou non), espaces, tirets et apostrophes
-    // tiret et apostrophe doivent être encadrés par des lettres
-    return preg_match('/^[a-zA-ZÀ-ÿ]+([- \'][a-zA-ZÀ-ÿ]+)*$/', $texte);
-}
-
-function validerDateNaissance($date) {
-    // format de la date
-    $dateObj = DateTime::createFromFormat('Y-m-d', $date);
-    if (!$dateObj) {
-        return false;
-    }
-
-    // âge doit être valide
-    $aujourdhui = new DateTime();
-    $age = $aujourdhui->diff($dateObj)->y;
-
-    // vérifier que la personne a au moins 18 ans
-    return $age >= 18;
-}
 
 // si formulaire fourni
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
