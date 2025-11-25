@@ -12,15 +12,14 @@
     },
     "nathan": {
         "password": "$2y$10$tTvAYXx3UuEw0RGfGdanGOUyNh1GLIBnwgeYq2aQXCwhiXc.7siuq",
-        "nom": "",
-        "prenom": "",
-        "sexe": "",
-        "date_naissance": "",
+        "nom": "Nathan",
+        "prenom": "Lang",
+        "sexe": "homme",
+        "date_naissance": "2005-12-23",
         "favoris": [
             1,
-            2,
-            3,
-            7
+            7,
+            88
         ]
     }
 }
