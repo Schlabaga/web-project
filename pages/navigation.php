@@ -5,8 +5,6 @@ require_once "Donnees.inc.php";
 global $Hierarchie;
 global $Recettes;
 
-print_r($_SESSION['favoris']);
-
 /* ---------- Gestion des favoris (session) ---------- */
 
 include("favoris.php");
