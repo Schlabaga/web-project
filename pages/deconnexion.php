@@ -1,8 +1,8 @@
 <?php
-$_SESSION = array();
+    $_SESSION = array();
 
-session_destroy();
+    session_destroy();
 
-header("Location: index.php?page=navigation");
-exit();
+    header("Location: index.php?page=navigation");
+    exit();
 ?>

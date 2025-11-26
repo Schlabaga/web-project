@@ -1,11 +1,11 @@
 <?php
 require_once "Donnees.inc.php";
-require_once "fonctions.php"; // Pour les fonctions partagées de validation
+require_once "fonctions.php";
 
 // Fichier où sont stockés les utilisateurs
 $fichierUtilisateurs = "data/utilisateurs.json";
 
-// Initialiser les variables pour conserver les valeurs en cas d'erreur
+// initialiser les valeurs
 $login = isset($_POST['login']) ? trim($_POST['login']) : '';
 $nom = isset($_POST['nom']) ? trim($_POST['nom']) : '';
 $prenom = isset($_POST['prenom']) ? trim($_POST['prenom']) : '';

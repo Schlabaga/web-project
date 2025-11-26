@@ -138,7 +138,7 @@ foreach ($Recettes as $id => $recette) {
 
         <?php } else { ?>
 
-            <!-- ======= AFFICHAGE SYNTHETIQUE ======= -->
+            <!--  AFFICHAGE SYNTHETIQUE  -->
             <h2>Liste des cocktails</h2>
 
             <?php if (empty($recettesCorrespondantes)) { ?>

@@ -130,35 +130,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
     </div>
 </section>
-
-<style>
-    .alert {
-        padding: 10px;
-        margin-bottom: 15px;
-        border-radius: 4px;
-    }
-    .alert.success {
-        background-color: #d4edda;
-        color: #155724;
-        border: 1px solid #c3e6cb;
-    }
-    .alert.error {
-        background-color: #f8d7da;
-        color: #721c24;
-        border: 1px solid #f5c6cb;
-    }
-    .input-disabled {
-        background-color: #e9ecef;
-        cursor: not-allowed;
-        opacity: 1;
-    }
-    .form-profil {
-        max-width: 500px; margin: 0 auto;
-        border: 1px solid #ddd;
-        padding: 20px;
-        border-radius: 5px;
-    }
-    .profil-container {
-        margin-top: 20px;
-    }
-</style>

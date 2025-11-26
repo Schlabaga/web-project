@@ -50,6 +50,17 @@ main {
     gap: 10px;
 }
 
+.login-display {
+    font-weight: bold;
+}
+
+.menu-right a {
+    border: 1px solid black;
+    padding: 4px 10px;
+    background: #EFEFEF;
+    cursor: pointer;
+}
+
 .login-form input {
     border: 1px solid #000;
     padding: 3px;
@@ -84,17 +95,16 @@ main {
 .search-form input[type="text"] {
     border: 1px solid #000;
     padding: 3px;
-    width: 230px;  /* à ajuster pour coller visuellement à la maquette */
+    width: 230px;
 }
 
-/* bouton avec l’icône loupe */
+/* bouton avec l'icône loupe */
 .search-button {
     border: 1px solid #000;
     padding: 3px 10px;
     background: #EDEDED;
     cursor: pointer;
 }
-
 
 /* ========================= */
 /*  LAYOUT DE navigation.php */
@@ -183,6 +193,10 @@ main {
     color: black;
 }
 
+.card-body {
+    margin-top: 5px;
+}
+
 .card-img {
     text-align: center;
     margin: 5px 0;
@@ -242,3 +256,233 @@ main {
     font-size: 14px;
 }
 
+/* ========================= */
+/*     PAGE DE RECHERCHE     */
+/* ========================= */
+
+.recherche-page {
+    padding: 10px;
+}
+
+.recherche-page h2 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.recherche-page h3 {
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.score-satisfaction {
+    font-size: 12px;
+    margin: 4px 0;
+    font-style: italic;
+}
+
+/* ========================= */
+/*    PAGE DES FAVORIS       */
+/* ========================= */
+
+.favoris-page {
+    padding: 10px;
+}
+
+.favoris-page h2 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+/* ========================= */
+/*    PAGE D'INSCRIPTION     */
+/* ========================= */
+
+.inscription-page {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.inscription-page h2 {
+    margin-top: 0;
+}
+
+.form-inscription {
+    border: 1px solid #000;
+    padding: 20px;
+    background: #ffffff;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="date"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+.form-group small {
+    font-size: 12px;
+    color: #666;
+    display: block;
+    margin-top: 3px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 15px;
+}
+
+.radio-group label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.obligatoire {
+    color: red;
+    font-weight: bold;
+}
+
+.note-obligatoire {
+    font-size: 12px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 8px 15px;
+    border: 1px solid #000;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #666;
+    color: white;
+}
+
+.btn-secondary {
+    background: #EFEFEF;
+    color: black;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    opacity: 0.8;
+}
+
+.lien-connexion {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.erreurs {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.erreurs h3 {
+    margin-top: 0;
+    color: #721c24;
+}
+
+.erreurs ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #721c24;
+}
+
+/* ========================= */
+/*    PAGE DE CONNEXION      */
+/* ========================= */
+
+.connexion-erreur {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.message-erreur {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 15px;
+    margin: 15px 0;
+    color: #721c24;
+    border-radius: 4px;
+}
+
+/* ========================= */
+/*      PROFIL              */
+/* ========================= */
+
+.profil-page {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.profil-page h2 {
+    margin-top: 0;
+}
+
+.profil-container {
+    margin-top: 20px;
+}
+
+.form-profil {
+    max-width: 500px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+
+.input-disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+    opacity: 1;
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}

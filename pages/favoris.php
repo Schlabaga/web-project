@@ -45,17 +45,32 @@ if (isset($_GET['toggle']) && ctype_digit($_GET['toggle'])) {
     }
 
     // Redirection pour éviter le double toggle au refresh
-    $pageActuelle = isset($_GET['page']) ? $_GET['page'] : 'recettes';
+    $pageActuelle = isset($_GET['page']) ? $_GET['page'] : 'favoris';
     $redirect = "index.php?page=" . $pageActuelle;
 
     // Conserver les paramètres selon la page
-    if ($pageActuelle === 'recettes') {
-        // Conserver le tri, la recherche, etc.
-        if (isset($_GET['tri'])) {
-            $redirect .= "&tri=" . urlencode($_GET['tri']);
+    if ($pageActuelle === 'navigation') {
+        // Conserver l'aliment courant
+        if (isset($_GET['aliment'])) {
+            $redirect .= "&aliment=" . urlencode($_GET['aliment']);
         }
-        if (isset($_GET['recherche'])) {
-            $redirect .= "&recherche=" . urlencode($_GET['recherche']);
+        // Conserver la recette si on est en vue détaillée ET que ce n'est pas celle qu'on toggle
+        if (isset($_GET['recette']) && $_GET['recette'] != $_GET['toggle']) {
+            $redirect .= "&recette=" . urlencode($_GET['recette']);
+        }
+    } elseif ($pageActuelle === 'recherche') {
+        // Conserver la requête de recherche
+        if (isset($_GET['requete'])) {
+            $redirect .= "&requete=" . urlencode($_GET['requete']);
+        }
+        // Conserver la recette si on est en vue détaillée ET que ce n'est pas celle qu'on toggle
+        if (isset($_GET['recette']) && $_GET['recette'] != $_GET['toggle']) {
+            $redirect .= "&recette=" . urlencode($_GET['recette']);
+        }
+    } elseif ($pageActuelle === 'favoris') {
+        // Conserver la recette si on est en vue détaillée ET que ce n'est pas celle qu'on toggle
+        if (isset($_GET['recette']) && $_GET['recette'] != $_GET['toggle']) {
+            $redirect .= "&recette=" . urlencode($_GET['recette']);
         }
     }
 
