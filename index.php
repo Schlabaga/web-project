@@ -15,12 +15,37 @@ session_start();
 <header>
     <nav class="top-menu">
 
+        <!-- BOUTONS GAUCHES -->
         <div class="menu-left">
             <a href="index.php?page=navigation">Navigation</a>
-            <a href="index.php?page=favoris">Mes recettes</a>
-            <a href="index.php?page=recherche">Recherche</a>
+            <a href="index.php?page=favoris">Recettes <strong>&#10084;</strong></a>
         </div>
 
+        <!-- BARRE DE RECHERCHE AU CENTRE -->
+        <div class="menu-center">
+            <form method="get" action="index.php" class="search-form">
+                <!-- on force la page "recherche" -->
+                <input type="hidden" name="page" value="recherche">
+
+                <label for="champ-recherche">Recherche&nbsp;:</label>
+                <input
+                    type="text"
+                    id="champ-recherche"
+                    name="requete"
+                    value="<?php
+                        // on laisse la requête affichée quand on est sur la page de recherche
+                        if (isset($_GET['page']) && $_GET['page'] === 'recherche' && isset($_GET['requete'])) {
+                            echo htmlspecialchars($_GET['requete']);
+                        }
+                    ?>"
+                >
+                <button type="submit" class="search-button" title="Rechercher">
+                    &#128269;
+                </button>
+            </form>
+        </div>
+
+        <!-- ZONE DE CONNEXION À DROITE -->
         <div class="menu-right">
             <?php if (isset($_SESSION["login"])) { ?>
 

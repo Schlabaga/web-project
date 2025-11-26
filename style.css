@@ -41,6 +41,7 @@ main {
     margin-right: 5px;
     display: inline-block;
     background: #EFEFEF;
+    cursor: pointer;
 }
 
 .menu-right {
@@ -60,6 +61,40 @@ main {
     background: #EDEDED;
     cursor: pointer;
 }
+
+/* bloc central qui contient le formulaire de recherche */
+.menu-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* le formulaire en lui-même */
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.search-form label {
+    font-size: 14px;
+}
+
+/* champ de texte de la recherche */
+.search-form input[type="text"] {
+    border: 1px solid #000;
+    padding: 3px;
+    width: 230px;  /* à ajuster pour coller visuellement à la maquette */
+}
+
+/* bouton avec l’icône loupe */
+.search-button {
+    border: 1px solid #000;
+    padding: 3px 10px;
+    background: #EDEDED;
+    cursor: pointer;
+}
+
 
 /* ========================= */
 /*  LAYOUT DE navigation.php */
@@ -206,3 +241,4 @@ main {
     margin-top: 8px;
     font-size: 14px;
 }
+
